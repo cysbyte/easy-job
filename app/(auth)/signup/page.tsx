@@ -25,8 +25,8 @@ const Auth = () => {
             <input type="text" className='border-[1px] border-[#eeeeee] rounded-sm w-full p-2 mt-2' />
             <button className='w-full py-2 bg-gradient-to-r from-[#57F773] to-[#B7F74B] rounded-md mt-6'>Get Started</button>
             <div className='flex items-center justify-center mt-4'>
-              <p className='text-sm text-[#5F6166]'>Don't have an account? </p>
-              <Link className='text-[#27CA44] text-sm ml-1' href={'/signup'}>Sign Up</Link>
+              <p className='text-sm text-[#5F6166]'>Already have an account? </p>
+              <Link className='text-[#27CA44] text-sm ml-1' href={'/signup'}>Sign In</Link>
             </div>
           </div>
           <div className='w-full bg-[rgba(39, 202, 68, 0.1)] rounded-md flex justify-center items-center mt-10'>
