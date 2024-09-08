@@ -7,7 +7,7 @@ const InterviewsButton = ({ isSelected }: { isSelected: boolean }) => {
     const bgColor = isSelected ? '#E9F9EB' : '#FFFFFF'
     return (
         <article className={`py-3 px-6 w-[90%] bg-[${bgColor}] text-[${color}] rounded-br-full rounded-tr-full flex gap-2`}>
-            <Image className='text-white' src={interviewIcon} alt='' />
+            <Image className='text-white' style={{width:'auto', height: "auto" }} src={interviewIcon} alt='' />
             <p className=''>Interviews</p>
         </article>
     )

@@ -8,7 +8,7 @@ import InviteButton from './InviteButton'
 
 const SideBar = () => {
   return (
-    <aside className="fixed top-0 left-0 p-2 w-52 h-screen bg-[url('/interviews/bg-SideBar.svg')] bg-fixed bg-center hidden md:block">
+    <aside className="fixed top-0 left-0 p-2 w-52 h-screen bg-[url('/interviews/bg-sidebar.svg')] bg-fixed bg-center hidden md:block">
       <div className='w-full h-screen bg-[rgba(255,255,255,0.7)] rounded-xl '>
         <div className='flex flex-col justify-start items-center'>
           <Link href={'/'}> 
