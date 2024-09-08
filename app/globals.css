@@ -53,3 +53,8 @@ body {
     column-count: 1; /* Single column on small screens */
   }
 }
+
+
+.btn-primary {
+  @apply block bg-gradient-to-r from-[#57F773] to-[#B7F74B] rounded-md px-6 py-3
+}

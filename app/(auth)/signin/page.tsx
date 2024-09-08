@@ -23,7 +23,7 @@ const Auth = () => {
           <div className='mt-10 w-[60%]'>
             <h5 className='text-start text-[#1C1D20] font-semibold text-sm'>Email address</h5>
             <input type="text" className='border-[1px] border-[#eeeeee] rounded-sm w-full p-2 mt-2' />
-            <button className='w-full py-2 bg-gradient-to-r from-[#57F773] to-[#B7F74B] rounded-md mt-6'>Get Started</button>
+            <Link href={'/interviews'} className='w-full block btn-primary mt-6'>Get Started</Link>
             <div className='flex items-center justify-center mt-4'>
               <p className='text-sm text-[#5F6166]'>Don't have an account? </p>
               <Link className='text-[#27CA44] text-sm ml-1' href={'/signup'}>Sign Up</Link>
