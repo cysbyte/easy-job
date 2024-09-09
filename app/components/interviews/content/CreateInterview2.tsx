@@ -5,12 +5,21 @@ import SingleInput from './SingleLineInput'
 import MultiLineInput from './MultiLineInput'
 import TimePicker from '../../shared/TimePicker'
 import TimeZonePicker from '../../shared/TimeZonePicker'
+import { useInterviewsContext } from '@/app/interviews/InterviewsProvider'
+import closeIcon from '/public/interviews/close-icon.svg'
 
 const CreateInterview2 = () => {
+    const { creatingInterview, setCreatingInterview, part, setPart, close } = useInterviewsContext();
     return (
-        <form className='absolute w-full overflow-auto h-full left-0 top-0 bg-white px-8 py-4 text-[#333333]'>
-            <div className='border-b py-6'>
+        <form className={`absolute w-[80%] top-0 ${creatingInterview && part === 2 ? 'right-0' : '-right-[80%]'} overflow-auto h-full bg-white px-8 py-4 text-[#333333] duration-500 transition-all ease-out`}>
+            <div className='w-full flex justify-between items-center border-b py-6'>
                 <h2 className='text-lg font-medium'>+Interview(2/2)</h2>
+                <Image
+                    onClick={() => close()}
+                    className='cursor-pointer'
+                    src={closeIcon}
+                    alt=''
+                />
             </div>
             <div className='py-6'>
                 <h3 className='text-base font-medium'>Position</h3>
@@ -59,8 +68,24 @@ const CreateInterview2 = () => {
                 <button className='btn-primary w-40'>Launch</button>
                 <button className='text-primary py-3 w-40 border border-primary rounded-md'
                     style={{ backgroundColor: 'rgba(39, 202, 68, 0.2)' }}>Save for later</button>
-                <button className='border w-40 py-3 rounded-md'>Back</button>
-                <button className='border w-40 py-3 rounded-md'>Cancel</button>
+                <button
+                    className='border w-40 py-3 rounded-md'
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setPart(1)
+                    }}
+                >
+                    Back
+                </button>
+                <button
+                    className='border w-40 py-3 rounded-md'
+                    onClick={(e) => {
+                        e.preventDefault()
+                        close()
+                    }}
+                >
+                    Cancel
+                </button>
             </div>
 
         </form>

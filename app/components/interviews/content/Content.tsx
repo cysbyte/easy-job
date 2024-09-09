@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import InterviewListHeader from './InterviewListHeader'
 import InterviewItem from './InterviewItem'
 import axiosInstance from '@/app/axios/axios'
+import { useInterviewsContext } from '@/app/interviews/InterviewsProvider'
 
 const Content = () => {
   const data = [
@@ -44,10 +45,12 @@ const Content = () => {
   if (error) return <div>Error: {error}</div>;
   if (!data) return <div>Loading...</div>;
 
+  const { creatingInterview, setCreatingInterview } = useInterviewsContext();
+
   return (
-    <section className='absolute left-0 top-0 w-full h-full flex flex-col'>
+    <section className='absolute left-0 top-0 w-full h-full flex flex-col p-2 pl-0'>
       <div className='bg-white rounded-lg'>
-        <div className="w-full p-5 bg-[url('/interviews/bg-content-header.svg')] bg-fixed bg-center ">
+        <div className="w-full p-5 bg-[url('/interviews/bg-content-header.svg')] bg-fixed bg-center font-medium text-lg">
           Interviews
         </div>
         <div className='flex justify-between items-center p-7 w-full'>
@@ -55,10 +58,15 @@ const Content = () => {
             <button className='rounded-md px-6 py-2 border-gray-300 border-2'>Upcomming</button>
             <button className='rounded-md px-6 py-2 border-gray-200 bg-gray-200 border-2 text-gray-400'>Completed</button>
           </div>
-          <button className='btn-primary'> &nbsp; +Interview &nbsp; </button>
+          <button
+            className='btn-primary w-36'
+            onClick={() => setCreatingInterview(!creatingInterview)}
+          >
+            +Interview
+          </button>
         </div>
       </div>
-      <div className='w-full h-full bg-white mt-3 rounded-lg p-2 text-lg flex-1 overflow-auto'>
+      <div className='w-full h-full bg-white mt-2 rounded-lg p-2 text-lg flex-1 overflow-auto'>
         <InterviewListHeader />
         <div>
           {interviews.map((item: any) => (
@@ -71,6 +79,8 @@ const Content = () => {
             />
           ))}
         </div>
+      </div>
+      <div className={`absolute ${creatingInterview?'visible opacity-50':'invisible opacity-0'} w-full h-full bg-black duration-500 transition-all ease-out`}>
       </div>
     </section>
   )
